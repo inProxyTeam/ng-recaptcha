@@ -6,7 +6,7 @@
     "types": []
   },
   "files": [
-    "src/main.ts",
+    "src/app/examples/language/language-demo.main.ts",
     "src/polyfills.ts"
   ],
   "include": [

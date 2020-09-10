@@ -3,24 +3,12 @@ import fs from 'fs';
 import merge from 'lodash.merge';
 import path from 'path';
 
-const supportedOlderVersions = ['v6', 'v7', 'v8'];
+const supportedVersions = ['v6', 'v7', 'v8', 'v9', 'v10'];
 
-generateSourcesForOlderVersions();
-generateSourcesForV9();
-generateSourcesForV10();
+generateSources();
 
-function generateSourcesForV9() {
-  readDirRecursively('v9-template').forEach((file) => processFileForVersions(file, ['v9']));
-  readDirRecursively('v-all/bin').forEach((file) => processFileForVersions(file, ['v9']));
-}
-
-function generateSourcesForV10() {
-  readDirRecursively('v10-template').forEach((file) => processFileForVersions(file, ['v10']));
-  readDirRecursively('v-all/bin').forEach((file) => processFileForVersions(file, ['v10']));
-}
-
-function generateSourcesForOlderVersions() {
-  readDirRecursively('v-all').forEach(processFileForOlderVersions);
+function generateSources() {
+  readDirRecursively('v-all').forEach(processFile);
 }
 
 function readDirRecursively(dir: string, filePathList: string[] = []): string[] {
@@ -74,8 +62,8 @@ function copyToDestination(filePath: string, from: string): void {
   fs.copyFileSync(from, filePath);
 }
 
-function processFileForOlderVersions(file: string): void {
-  processFileForVersions(file, supportedOlderVersions);
+function processFile(file: string): void {
+  processFileForVersions(file, supportedVersions);
 }
 
 function processFileForVersions(file: string, versions: string[]): void {

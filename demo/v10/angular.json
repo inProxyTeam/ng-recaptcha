@@ -13,9 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "../dist/ng-recaptcha",
-            "index": "src/index.html",
-            "main": "src/app/examples/basic/basic-demo.main.ts",
+            "outputPath": "../dist/ng-recaptcha/v10-temp/",
+            "index": "src/language.html",
+            "main": "src/app/examples/language/language-demo.main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "outputHashing": "all",
@@ -56,6 +56,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "v10"
 }
